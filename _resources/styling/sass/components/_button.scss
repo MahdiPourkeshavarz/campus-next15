@@ -1,0 +1,38 @@
+.btn {
+  font-size: 2.5rem;
+
+  &--small {
+    padding: 1rem 1.8rem;
+    border-radius: 2.5rem;
+  }
+
+  &--medium {
+    padding: 1.6rem 3.2rem;
+    border-radius: 3.2rem;
+  }
+
+  &--black {
+    background-color: black;
+    color: white;
+  }
+
+  &--inverse {
+    background-color: white;
+    color: black;
+  }
+
+  &--turquoise {
+    background-color: $turquoise;
+    color: white;
+  }
+
+  &--orange {
+    background-color: #ce822f;
+    color: white;
+  }
+
+  &--beige {
+    background-color: $beige;
+    color: white;
+  }
+}

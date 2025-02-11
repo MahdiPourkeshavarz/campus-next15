@@ -1,0 +1,34 @@
+.input {
+  outline: none;
+  border: none;
+  font-size: 2rem;
+
+  &::placeholder {
+    color: black;
+    font-size: 2rem;
+  }
+
+  &--beige {
+    height: 6.4rem;
+    border-radius: 1.8rem;
+    padding: 2rem;
+    background-color: $light-brown;
+  }
+
+  &__error {
+    color: red;
+    font-size: 1.6rem;
+    margin-top: 1.6rem;
+  }
+
+  &__container {
+    & .input {
+      display: block;
+    }
+
+    & label {
+      display: block;
+      margin-bottom: 1.6rem;
+    }
+  }
+}

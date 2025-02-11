@@ -1,0 +1,53 @@
+.article-overview {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 4rem;
+  margin-bottom: 12rem;
+
+  &__info {
+    width: 60%;
+  }
+
+  &__headline {
+    margin-bottom: 2.4rem;
+    color: #333;
+  }
+
+  &__description {
+    font-size: 2.4rem;
+    line-height: 1.5;
+    color: #666;
+  }
+
+  &__contents {
+    width: 35%;
+    padding: 3rem;
+    font-size: 2rem;
+    color: #333;
+    list-style: none;
+
+    & li {
+      margin-bottom: 1.8rem;
+      text-align: right;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      a {
+        color: #0041e8; // Changed from inherit to blue
+        text-decoration: underline;
+        transition: all 0.2s ease;
+        display: block;
+        padding: 1rem;
+        border-radius: 0.8rem;
+
+        &:hover {
+          color: darken(#0041e8, 10%); // Darkened hover state
+          transform: translateX(5px);
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
