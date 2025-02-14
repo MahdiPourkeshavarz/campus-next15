@@ -6,7 +6,7 @@ export default async function Home() {
   return (
     <>
       <div>
-        <p>hi</p>
+        <p>{data.description}</p>
       </div>
     </>
   );
@@ -18,5 +18,5 @@ async function loader() {
   const response = await fetch(url.href);
   const data = await response.json();
 
-  return { data };
+  return { ...data.data };
 }

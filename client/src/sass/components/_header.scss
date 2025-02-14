@@ -1,0 +1,47 @@
+.header {
+  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 4.8rem;
+  z-index: 10;
+  background-color: $light-beige;
+
+  &--light {
+    color: white;
+    background-color: $orange;
+  }
+
+
+  &--white {
+    filter: invert(100%) sepia(0%) saturate(7499%) hue-rotate(25deg) brightness(102%) contrast(101%);
+    
+  }
+
+  img {
+    height: auto;
+    width: 5rem;
+  }
+
+  &__logo {
+    height: auto;
+    width: 5rem;
+
+    &--black {
+      filter: invert(0%) sepia(0%) saturate(0%) hue-rotate(25deg) brightness(102%) contrast(101%);
+    }
+
+    &--white {
+      filter: invert(100%) sepia(0%) saturate(7499%) hue-rotate(25deg) brightness(102%) contrast(101%);
+    }
+  }
+
+  &__nav {
+    display: flex;
+    list-style: none;
+
+    & li:not(:last-of-type) {
+      margin-right: 4.6rem;
+    }
+  }
+}

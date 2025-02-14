@@ -1,0 +1,47 @@
+.info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 4.8rem;
+  margin-top: 8rem;
+  margin-bottom: 8rem;
+
+  &--reversed {
+    flex-direction: row-reverse;
+    padding-left: 4.8rem;
+    padding-right: 0;
+
+    & .info__image {
+      border-radius: 329px 0px 0px 329px;
+    }
+  }
+
+  &__image,
+  &__text {
+    width: 48%;
+  }
+
+  &__image {
+    border-radius: 0px 329px 329px 0px;
+    object-fit: cover;
+    object-position: center;
+    height: 100%;
+  }
+
+  &__headline {
+    margin-top: 4rem;
+    margin-bottom: 3rem;
+
+    &--turquoise {
+      color: $turquoise;
+    }
+
+    &--orange {
+      color: $orange;
+    }
+  }
+
+  & .btn {
+    margin-top: 3rem;
+  }
+}
