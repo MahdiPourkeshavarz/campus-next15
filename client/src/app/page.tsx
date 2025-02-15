@@ -1,22 +1,19 @@
-import { BASE_URL, HOME_URL } from "@/constants";
+import { HeroSection } from "@/components/blocks/heroSection";
+import { getHomePageData } from "@/data/loaders";
+import { notFound } from "next/navigation";
 
 export default async function Home() {
-  const data = await loader();
+  const data = await getHomePageData();
+  if (!data) notFound();
+
+  const blocks = data?.blocks || [];
 
   return (
     <>
       <div>
-        <p>{data.description}</p>
+        <p></p>
+        <HeroSection {...blocks[0]} />
       </div>
     </>
   );
-}
-
-async function loader() {
-  const url = new URL(HOME_URL, BASE_URL);
-
-  const response = await fetch(url.href);
-  const data = await response.json();
-
-  return { ...data.data };
 }
