@@ -1,5 +1,6 @@
 import {
   BASE_URL,
+  globalSettingQuery,
   HOME_PAGE_QUERY,
   HOME_URL,
   pageBySlugQuery,
@@ -24,4 +25,11 @@ export async function getPageBySlug(slug: string) {
   const url = new URL(path, BASE_URL);
   url.search = pageBySlugQuery(slug);
   return await fetchAPI(url.href, { method: "GET" });
+}
+
+export async function getGlobalSettings() {
+  const path = "/api/global";
+  const url = new URL(path, BASE_URL);
+  url.search = globalSettingQuery;
+  return fetchAPI(url.href, { method: "GET" });
 }

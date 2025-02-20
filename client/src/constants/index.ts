@@ -44,3 +44,34 @@ export const pageBySlugQuery = (slug: string) =>
       },
     },
   });
+
+export const globalSettingQuery = QueryString.stringify({
+  populate: {
+    header: {
+      populate: {
+        logo: {
+          populate: {
+            image: {
+              fields: ["url", "alternativeText"],
+            },
+          },
+        },
+        navigation: true,
+        cta: true,
+      },
+    },
+    footer: {
+      populate: {
+        logo: {
+          populate: {
+            image: {
+              fields: ["url", "alternativeText"],
+            },
+          },
+        },
+        navigation: true,
+        policies: true,
+      },
+    },
+  },
+});
