@@ -1,5 +1,5 @@
 import { BASE_URL } from "@/constants";
-import { StrapiImageProps } from "@/types/homePage";
+import { StrapiImageProps } from "@/types";
 import Image from "next/image";
 
 export function StrapiImage({

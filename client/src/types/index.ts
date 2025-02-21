@@ -9,7 +9,7 @@ export interface Data {
   createdAt: string;
   updatedAt: string;
   publishedAt: string;
-  blocks: Block[];
+  blocks: Array<Block<ComponentType>>;
 }
 
 export interface Image {
@@ -53,25 +53,46 @@ export interface LogoProps {
   image: ImageProps;
 }
 
-type ComponentType = "blocks.hero-section" | "blocks.info-block";
+export interface StrapiImageProps {
+  src: string;
+  alt: string;
+  className?: string;
+  [key: string]: string | number | boolean | undefined;
+}
 
-export interface homePageDataResponse<
-  T extends ComponentType,
-  D extends object = Record<string, unknown>
-> {
+type ComponentType =
+  | "blocks.hero-section"
+  | "blocks.info-block"
+  | "blocks.featured-article"
+  | "blocks.subscribe";
+
+// Define a base interface for all blocks
+interface BaseBlock<T extends ComponentType> {
   id: number;
   __component?: T;
   documentId?: string;
   createdAt?: string;
   updatedAt?: string;
   publishedAt?: string;
-  data?: D;
 }
 
-export type Block = HeroSectionProps | InfoBlockProps;
+// Define the props for each block type without circular references
+export interface FeaturedArticleProps
+  extends BaseBlock<"blocks.featured-article"> {
+  headline: string;
+  excerpt: string;
+  link: LinkProps;
+  image: ImageProps;
+}
 
-export interface HeroSectionProps
-  extends homePageDataResponse<"blocks.hero-section"> {
+export interface SubscribeProps extends BaseBlock<"blocks.subscribe"> {
+  headline: string;
+  content: string;
+  placeholder: string;
+  buttonText: string;
+}
+
+export interface HeroSectionProps extends BaseBlock<"blocks.hero-section"> {
   theme: "turquoise" | "orange";
   heading: string;
   image: ImageProps;
@@ -81,8 +102,7 @@ export interface HeroSectionProps
   darken?: boolean;
 }
 
-export interface InfoBlockProps
-  extends homePageDataResponse<"blocks.info-block"> {
+export interface InfoBlockProps extends BaseBlock<"blocks.info-block"> {
   theme: "turquoise" | "orange";
   reversed?: boolean;
   headline: string;
@@ -91,9 +111,12 @@ export interface InfoBlockProps
   cta?: LinkProps;
 }
 
-export interface StrapiImageProps {
-  src: string;
-  alt: string;
-  className?: string;
-  [key: string]: string | number | boolean | undefined;
-}
+export type Block<T extends ComponentType> = T extends "blocks.hero-section"
+  ? HeroSectionProps
+  : T extends "blocks.info-block"
+  ? InfoBlockProps
+  : T extends "blocks.featured-article"
+  ? FeaturedArticleProps
+  : T extends "blocks.subscribe"
+  ? SubscribeProps
+  : never;

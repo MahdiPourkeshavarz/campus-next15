@@ -4,7 +4,8 @@
   "info": {
     "singularName": "page",
     "pluralName": "pages",
-    "displayName": "page"
+    "displayName": "page",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -21,7 +22,9 @@
       "type": "dynamiczone",
       "components": [
         "blocks.info-block",
-        "blocks.hero-section"
+        "blocks.hero-section",
+        "blocks.featured-article",
+        "blocks.subscribe"
       ]
     },
     "slug": {

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 import { StrapiImage } from "./StrapiImage";
-import { InfoBlockProps } from "@/types/homePage";
+import { InfoBlockProps } from "@/types";
 
 export function InfoBlock({
   theme,

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { StrapiImage } from "./StrapiImage";
-import { HeroSectionProps } from "@/types/homePage";
+import { HeroSectionProps } from "@/types";
 
 export function HeroSection({
   theme,

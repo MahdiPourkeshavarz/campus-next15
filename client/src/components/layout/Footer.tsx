@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { StrapiImage } from "../blocks/StrapiImage";
-import { LinkProps, LogoProps } from "@/types/homePage";
+import { LinkProps, LogoProps } from "@/types";
 
 interface FooterProps {
   data: {

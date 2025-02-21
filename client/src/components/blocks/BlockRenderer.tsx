@@ -1,5 +1,5 @@
 import { InfoBlock } from "@/components/blocks/InfoBlock";
-import { Block } from "@/types/homePage";
+import { Block } from "@/types";
 import { HeroSection } from "./HeroSection";
 
 function blockRenderer(block: Block, index: number) {

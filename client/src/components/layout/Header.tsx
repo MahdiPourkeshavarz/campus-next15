@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { StrapiImage } from "../blocks/StrapiImage";
-import { LinkProps, LogoProps } from "@/types/homePage";
+import { LinkProps, LogoProps } from "@/types";
 
 interface HeaderProps {
   data: {
