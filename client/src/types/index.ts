@@ -60,7 +60,7 @@ export interface StrapiImageProps {
   [key: string]: string | number | boolean | undefined;
 }
 
-type ComponentType =
+export type ComponentType =
   | "blocks.hero-section"
   | "blocks.info-block"
   | "blocks.featured-article"
