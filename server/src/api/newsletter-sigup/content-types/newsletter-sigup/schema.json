@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "newsletter_sigups",
+  "info": {
+    "singularName": "newsletter-sigup",
+    "pluralName": "newsletter-sigups",
+    "displayName": "newsletter sigup"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "email": {
+      "type": "email"
+    }
+  }
+}
