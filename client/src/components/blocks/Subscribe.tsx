@@ -18,7 +18,7 @@ export function Subscribe({
 }: Readonly<SubscribeProps>) {
   const [formState, formAction] = useActionState(subscribeAction, InitialState);
   const zodErrors = formState?.zodErrors?.email;
-  const strapiErrors = formState?.strapiErrors?.[0]?.message;
+  const strapiErrors = formState?.strapiErrors?.message;
   const errorMessage = zodErrors || strapiErrors || formState?.errorMessage;
 
   return (
