@@ -1,5 +1,6 @@
 import {
   BASE_URL,
+  BLOG_PAGE_SIZE,
   globalSettingQuery,
   HOME_PAGE_QUERY,
   HOME_URL,
@@ -35,11 +36,27 @@ export async function getGlobalSettings() {
   return fetchAPI(url.href, { method: "GET" });
 }
 
-export async function getContent(path: string) {
+export async function getContent(
+  path: string,
+  featured?: boolean,
+  query?: string,
+  page?: string
+) {
   const url = new URL(path, BASE_URL);
 
   url.search = QueryString.stringify({
     sort: ["createdAt:desc"],
+    filters: {
+      $or: [
+        { title: { $containsi: query } },
+        { description: { $containsi: query } },
+      ],
+      ...(featured && { featured: { $eq: featured } }),
+    },
+    pagination: {
+      pageSize: BLOG_PAGE_SIZE,
+      page: parseInt(page || "1"),
+    },
     populate: {
       image: {
         fields: ["url", "alternativeText"],

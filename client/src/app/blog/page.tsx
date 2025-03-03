@@ -1,22 +1,17 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { BlockRenderer } from "@/components/blocks/BlockRenderer";
-import { Card, CardProps } from "@/components/Card";
+import { BlogCard } from "@/components/BlogCard";
 import { ContentList } from "@/components/ContentList";
 import { getPageBySlug } from "@/data/loaders";
 import { notFound } from "next/navigation";
 
 interface PageProps {
-  params: Promise<{ slug: string }>;
+  searchParams: Promise<{ page?: string; query?: string }>;
 }
 
-const BlogCard = (props: Readonly<CardProps>) => (
-  <Card {...props} basePath="blog" />
-);
-
-export default async function BlogRoute({ params }: PageProps) {
-  const slug = (await params).slug;
-
-  const { blocks } = await loader(slug);
+export default async function BlogRoute({ searchParams }: PageProps) {
+  const { blocks } = await loader("blog");
+  const { page, query } = await searchParams;
 
   return (
     <>
@@ -26,6 +21,10 @@ export default async function BlogRoute({ params }: PageProps) {
           headline="Check out our latest articles"
           path="/api/articles"
           component={BlogCard}
+          showSearch
+          query={query}
+          showPagination
+          page={page}
         />
       </div>
     </>
@@ -33,7 +32,7 @@ export default async function BlogRoute({ params }: PageProps) {
 }
 
 async function loader(slug: string) {
-  const { data } = await getPageBySlug("blog");
+  const { data } = await getPageBySlug(slug);
   if (data.length === 0) notFound();
   return { blocks: data[0]?.blocks };
 }

@@ -88,3 +88,5 @@ export const globalSettingQuery = QueryString.stringify({
     },
   },
 });
+
+export const BLOG_PAGE_SIZE = 2;
