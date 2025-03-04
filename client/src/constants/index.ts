@@ -90,3 +90,64 @@ export const globalSettingQuery = QueryString.stringify({
 });
 
 export const BLOG_PAGE_SIZE = 2;
+
+export const BLOG_POPULATE = {
+  blocks: {
+    on: {
+      "blocks.hero-section": {
+        populate: {
+          image: {
+            fields: ["url", "alternativeText"],
+          },
+          logo: {
+            populate: {
+              image: {
+                fields: ["url", "alternativeText"],
+              },
+            },
+          },
+          cta: true,
+        },
+      },
+      "blocks.info-block": {
+        populate: {
+          image: {
+            fields: ["url", "alternativeText"],
+          },
+          cta: true,
+        },
+      },
+      "blocks.featured-article": {
+        populate: {
+          image: {
+            fields: ["url", "alternativeText"],
+          },
+          link: true,
+        },
+      },
+      "blocks.subscribe": {
+        populate: true,
+      },
+      "blocks.heading": {
+        populate: true,
+      },
+      "blocks.paragraph-with-image": {
+        populate: {
+          image: {
+            fields: ["url", "alternativeText"],
+          },
+        },
+      },
+      "blocks.paragraph": {
+        populate: true,
+      },
+      "blocks.full-image": {
+        populate: {
+          image: {
+            fields: ["url", "alternativeText"],
+          },
+        },
+      },
+    },
+  },
+};

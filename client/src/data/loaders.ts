@@ -1,6 +1,7 @@
 import {
   BASE_URL,
   BLOG_PAGE_SIZE,
+  BLOG_POPULATE,
   globalSettingQuery,
   HOME_PAGE_QUERY,
   HOME_URL,
@@ -61,6 +62,25 @@ export async function getContent(
       image: {
         fields: ["url", "alternativeText"],
       },
+    },
+  });
+
+  return fetchAPI(url.href, { method: "GET" });
+}
+
+export async function getContentBySlug(slug: string, path: string) {
+  const url = new URL(path, BASE_URL);
+  url.search = QueryString.stringify({
+    filters: {
+      slug: {
+        $eq: slug,
+      },
+    },
+    populate: {
+      image: {
+        fields: ["url", "alternativeText"],
+      },
+      ...BLOG_POPULATE,
     },
   });
 
