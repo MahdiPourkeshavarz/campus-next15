@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_blocks_paragraph_with_images",
+  "info": {
+    "displayName": "Paragraph With Image"
+  },
+  "options": {},
+  "attributes": {
+    "content": {
+      "type": "richtext"
+    },
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "reversed": {
+      "type": "boolean",
+      "default": false
+    },
+    "imageLandscaped": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}
