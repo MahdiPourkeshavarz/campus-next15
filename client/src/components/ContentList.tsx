@@ -34,7 +34,7 @@ export async function ContentList({
   headline,
   path,
   component,
-  headlineAlignment,
+  headlineAlignment = "left",
   featured,
   showSearch,
   query,
@@ -45,7 +45,9 @@ export async function ContentList({
   const Component = component;
   return (
     <section className="content-items container">
-      <h3 className={`content-items__headline ${headlineAlignment ?? ""}`}>
+      <h3
+        className={`content-items__headline ${`content-items--${headlineAlignment}`}`}
+      >
         {headline || "Featured Articles"}
       </h3>
       {showSearch && <Search />}

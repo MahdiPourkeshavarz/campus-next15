@@ -137,7 +137,7 @@ export interface ArticleProps {
   updatedAt: string;
 }
 
-type ComponentType =
+export type ComponentType =
   | "blocks.hero-section"
   | "blocks.info-block"
   | "blocks.featured-article"
