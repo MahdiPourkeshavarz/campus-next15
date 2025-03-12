@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "event_signups",
+  "info": {
+    "singularName": "event-signup",
+    "pluralName": "event-signups",
+    "displayName": "eventSignup"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "firstName": {
+      "type": "string"
+    },
+    "lastName": {
+      "type": "string"
+    },
+    "email": {
+      "type": "email"
+    },
+    "telephone": {
+      "type": "string"
+    },
+    "event": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::event.event",
+      "inversedBy": "eventSignups"
+    }
+  }
+}
