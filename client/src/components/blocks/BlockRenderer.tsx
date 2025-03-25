@@ -3,6 +3,10 @@ import { HeroSection } from "./HeroSection";
 import { FeaturedArticle } from "./FeaturedArticle";
 import { Subscribe } from "./Subscribe";
 import { Block, ComponentType } from "@/types";
+import { Heading } from "./Heading";
+import { FullImage } from "./FullImage";
+import { Paragraph } from "./Paragraph";
+import { ParagraphWithImage } from "./ParagraphWithImage";
 
 function blockRenderer(block: Block<ComponentType>, index: number) {
   switch (block.__component) {
@@ -14,6 +18,14 @@ function blockRenderer(block: Block<ComponentType>, index: number) {
       return <FeaturedArticle {...block} key={index} />;
     case "blocks.subscribe":
       return <Subscribe {...block} key={index} />;
+    case "blocks.heading":
+      return <Heading {...block} key={index} />;
+    case "blocks.full-image":
+      return <FullImage {...block} key={index} />;
+    case "blocks.paragraph":
+      return <Paragraph {...block} key={index} />;
+    case "blocks.paragraph-with-image":
+      return <ParagraphWithImage {...block} key={index} />;
     default:
       return null;
   }
